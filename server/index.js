@@ -1,9 +1,14 @@
 import express from "express";
 import categoryRoute from "./routes/categoryRoute.js";
 import productRoutes from "./routes/productRoute.js";
+import cors from "cors"
 
 const app = express();
 app.use(express.json());
+app.use(cors({
+  origin: "http://localhost:5173/",
+  credentials: true,
+}))
 const PORT = 8000;
 
 app.use("/api/v1/category", categoryRoute);
