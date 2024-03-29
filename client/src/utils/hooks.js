@@ -11,7 +11,7 @@ export function useProducts() {
       try {
         setIsLoading(true);
         const response = await axios.get(`${BASE_URL}/api/v1/product`);
-        setProducts(response.data);
+        setProducts(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {

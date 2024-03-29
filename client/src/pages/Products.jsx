@@ -15,6 +15,7 @@ const Products = () => {
       const response = await axios.delete(
         `${BASE_URL}/api/v1/product/delete/${id}`
       );
+      console.log(response.data)
       if (response.status === 200) {
         setProducts(products.filter((product) => product.id !== id));
       }
@@ -31,7 +32,7 @@ const Products = () => {
       </p>
 
       <div className="mt-10">
-        <div className="flex flex-row gap-x-2">
+        <div className="flex flex-row gap-x-2 ">
           <Link to="/addProduct">
             <button className="px-2 py-1 text-white rounded-md bg-slate-700">
               Add Product
@@ -52,7 +53,7 @@ const Products = () => {
         {isLoading ? (
           <div className="text-3xl font-semibold text-center">Loading....</div>
         ) : (
-          <div className="flex flex-row flex-wrap mt-5 gap-x-2 ">
+          <div className="flex flex-row flex-wrap mt-5 gap-x-2 gap-y-2">
             {products.map((product) => (
               <div
                 key={product.id}
