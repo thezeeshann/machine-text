@@ -3,10 +3,11 @@ import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import axios from "axios";
 import { BASE_URL } from "../utils/constent";
-import {toast} from "react-hot-toast"
+import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Category = () => {
-  const { isLoading, categories,setCategories } = useCategory();
+  const { isLoading, categories, setCategories } = useCategory();
 
   const deleteCategory = async (id) => {
     try {
@@ -20,7 +21,7 @@ const Category = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <section>
@@ -28,7 +29,7 @@ const Category = () => {
         All Category
       </p>
       <div className="mt-10">
-      {isLoading ? (
+        {isLoading ? (
           <div className="text-3xl font-semibold text-center">Loading....</div>
         ) : (
           <div className="flex flex-row flex-wrap mt-5 gap-x-2 ">
@@ -45,7 +46,6 @@ const Category = () => {
                     <span>{category.id}</span>
                     <p className="d">{category.name}</p>
                   </div>
-                
                 </div>
                 <div className="flex flex-row gap-x-2">
                   <MdDelete
@@ -53,12 +53,12 @@ const Category = () => {
                     size={"1.5rem"}
                     className="text-red-500 cursor-pointer"
                   />
-                  {/* <Link to={`/updateProduct/${product.id}`}> */}
+                  <Link to={`/updateCategory/${category.id}`}>
                     <MdEdit
                       size={"1.5rem"}
                       className="text-green-500 cursor-pointer"
                     />
-                  {/* </Link> */}
+                  </Link>
                 </div>
               </div>
             ))}

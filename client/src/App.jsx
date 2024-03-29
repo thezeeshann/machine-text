@@ -4,6 +4,7 @@ import AddProduct from "./pages/AddProduct";
 import UpdateProduct from "./pages/UpdateProduct";
 import AddCategory from "./pages/AddCategory";
 import Category from "./pages/Category";
+import UpdateCategory from "./pages/UpdateCategory";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/addProduct" element={<AddProduct />} />
         <Route path="/updateProduct/:id" element={<UpdateProduct />} />
         <Route path="/addCategory" element={<AddCategory />} />
+        <Route path="/updateCategory/:id" element={<UpdateCategory />} />
       </Routes>
     </main>
   );
