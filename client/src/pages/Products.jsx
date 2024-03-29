@@ -4,11 +4,11 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constent";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { UseProducts } from "../utils/hooks";
+import { useProducts } from "../utils/hooks";
 
 const Products = () => {
+  const { products, isLoading, setProducts } = useProducts();
   
-  const { products, isLoading, setProducts } = UseProducts();
 
   const deleteProducts = async (id) => {
     try {
@@ -37,9 +37,16 @@ const Products = () => {
               Add Product
             </button>
           </Link>
-          <button className="px-2 py-1 text-white bg-gray-700 rounded-md">
-            Add Category
-          </button>
+          <Link to="/addCategory">
+            <button className="px-2 py-1 text-white bg-gray-700 rounded-md">
+              Add Category
+            </button>
+          </Link>
+          <Link to="/category">
+            <button className="px-2 py-1 text-white bg-gray-700 rounded-md">
+              Show Category
+            </button>
+          </Link>
         </div>
 
         {isLoading ? (

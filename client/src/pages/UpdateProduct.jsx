@@ -1,4 +1,4 @@
-import { UseProducts } from "../utils/hooks";
+import { useProducts } from "../utils/hooks";
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/constent";
@@ -8,7 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 const UpdateProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { products } = UseProducts();
+  const { products } = useProducts();
   const categoryId = products.map((product) => product.category.id);
   const [name, setName] = useState("");
 
