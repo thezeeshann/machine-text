@@ -5,10 +5,7 @@ import cors from "cors"
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:5173/",
-  credentials: true,
-}))
+app.use(cors())
 const PORT = 8000;
 
 app.use("/api/v1/category", categoryRoute);
