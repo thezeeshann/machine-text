@@ -1,10 +1,8 @@
 
 
 ## Features
-- Add category
-- Add products
-- update products
-- delete products
+- category - CRUD operations
+- products - CRUD operations
 - pagination
 
 ## Local Development
