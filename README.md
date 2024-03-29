@@ -21,6 +21,6 @@ npm run dev
 
 ## Tech Stack
 
-- Frontend - Html, Tailwind Css, Javascript, React
+- Frontend - Html, Tailwind Css, Javascript, React js
 - Backend - Node js, Express js
 - Database - Prisma (ORM), Postgres Sql 
