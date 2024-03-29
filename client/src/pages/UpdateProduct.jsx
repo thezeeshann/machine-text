@@ -1,5 +1,4 @@
-import { useProducts } from "../utils/hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/constent";
 import { toast } from "react-hot-toast";
@@ -8,9 +7,22 @@ import { useParams, useNavigate } from "react-router-dom";
 const UpdateProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { products } = useProducts();
-  const categoryId = products.map((product) => product.category.id);
   const [name, setName] = useState("");
+  const [categoryId, setCategoryId] = useState("");
+
+  useEffect(() => {
+    const getSingleProduct = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/v1/product/${id}`);
+        setName(response.data.name);
+        setCategoryId(response.data.categoryId);
+      } catch (error) {
+        console.log("error while feting single data", error);
+      }
+    };
+
+    getSingleProduct();
+  }, [id]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();

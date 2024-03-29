@@ -3,14 +3,25 @@ import { BASE_URL } from "../utils/constent";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useParams, useNavigate } from "react-router-dom";
-// import { useCategory } from "../utils/hooks";
+import { useEffect } from "react";
 
 const UpdateCategory = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-//   const { categories } = useCategory();
   const [name, setName] = useState("");
 
+  useEffect(() => {
+    const getSingleProduct = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/v1/category/${id}`);
+        setName(response.data.name);
+      } catch (error) {
+        console.log("error while feting single data", error);
+      }
+    };
+
+    getSingleProduct();
+  }, [id]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();

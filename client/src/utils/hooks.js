@@ -42,7 +42,7 @@ export function useProductsAndPagination() {
         setMetadata(response.data.metadata);
       } catch (error) {
         console.error("Error fetching data:", error);
-      } finally {
+      }finally{
         setIsLoading(false);
       }
     };
