@@ -4,18 +4,18 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constent";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { useProducts } from "../utils/hooks";
+import { useProductsAndPagination } from "../utils/hooks";
 
 const Products = () => {
-  const { products, isLoading, setProducts } = useProducts();
-  
+  const { products, metadata, handlePagination, isLoading, setProducts } =
+    useProductsAndPagination();
 
   const deleteProducts = async (id) => {
     try {
       const response = await axios.delete(
         `${BASE_URL}/api/v1/product/delete/${id}`
       );
-      console.log(response.data)
+      console.log(response.data);
       if (response.status === 200) {
         setProducts(products.filter((product) => product.id !== id));
       }
@@ -92,6 +92,24 @@ const Products = () => {
             ))}
           </div>
         )}
+
+        <div className="border-[2px] bg-white justify-center items-center flex flex-row  w-max p-1 rounded-md  mt-5 gap-x-3">
+          <button
+            className="font-semibold disabled:text-neutral-500 disabled:font-normal"
+            onClick={() => handlePagination(metadata.currentPage - 1)}
+            disabled={metadata.currentPage === 1}
+          >
+            Previous
+          </button>
+          <span>{metadata.currentPage}</span>
+          <button
+            className="font-semibold disabled:text-neutral-500 disabled:font-normal"
+            onClick={() => handlePagination(metadata.currentPage + 1)}
+            disabled={metadata.currentPage === metadata.totalPages}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </section>
   );
