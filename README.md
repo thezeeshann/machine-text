@@ -5,9 +5,7 @@
 - products - CRUD operations
 - pagination server side & client side
 
-## Local Development
-
-Once that's done, you can use the following commands to run the app locally:
+## Local setup
 
 ```
 npm install
