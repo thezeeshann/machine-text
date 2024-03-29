@@ -3,7 +3,7 @@
 ## Features
 - category - CRUD operations
 - products - CRUD operations
-- pagination
+- pagination server side & client side
 
 ## Local Development
 
