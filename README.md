@@ -22,7 +22,5 @@ npm run dev
 - Database - Prisma (ORM), Postgres Sql 
 
 
-https://github.com/thezeeshann/machine-text/assets/88139550/1522febe-a99b-45ac-a81e-24a724473e50
-
 
 
